@@ -1,0 +1,67 @@
+{
+  "id": "1ad430e5-d522-4682-932a-994829cf41c0",
+  "name": "AAA",
+  "description": "",
+  "sequences": [
+    {
+      "id": "84f88688-6a1b-41b4-90f5-942897c23226",
+      "name": "New Sequence",
+      "invokeType": "sceneStart",
+      "isSingleUse": true,
+      "passages": [
+        {
+          "tags": [
+            {
+              "key": "character",
+              "value": "may"
+            }
+          ],
+          "text": "fgg fgh gfh hg"
+        },
+        {
+          "tags": [
+            {
+              "key": "character",
+              "value": "peter"
+            }
+          ],
+          "text": "shsdfgh hgdf dsfg dfgs dgh"
+        },
+        {
+          "tags": [
+            {
+              "key": "character",
+              "value": "may"
+            }
+          ],
+          "text": "sfdhgsdfgdfsg dfgs sg"
+        }
+      ]
+    },
+    {
+      "id": "f6be6092-2b56-48b3-b038-218eca31c441",
+      "name": "B",
+      "invokeType": "interaction",
+      "isSingleUse": false,
+      "passages": [
+        {
+          "tags": [
+            {
+              "key": "character",
+              "value": "may"
+            }
+          ],
+          "text": "sdggsdf"
+        },
+        {
+          "tags": [],
+          "text": "dsfgdsfgdf"
+        },
+        {
+          "tags": [],
+          "text": "fdgsd fdgsdfgdf\ndfsg"
+        }
+      ]
+    }
+  ]
+}

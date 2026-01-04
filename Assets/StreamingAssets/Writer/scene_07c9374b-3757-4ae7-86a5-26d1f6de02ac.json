@@ -1,0 +1,33 @@
+{
+  "id": "07c9374b-3757-4ae7-86a5-26d1f6de02ac",
+  "name": "Scene A",
+  "description": "",
+  "sequences": [
+    {
+      "id": "b1d1d9bd-341d-45f8-9445-79a7cfb03f97",
+      "name": "OnStart",
+      "invokeType": "sceneStart",
+      "isSingleUse": true,
+      "passages": [
+        {
+          "tags": [
+            {
+              "key": "character",
+              "value": "ben"
+            }
+          ],
+          "text": "fdhjkfghd dfhgj"
+        },
+        {
+          "tags": [
+            {
+              "key": "character",
+              "value": "peter"
+            }
+          ],
+          "text": "df fdgdfg fs"
+        }
+      ]
+    }
+  ]
+}
