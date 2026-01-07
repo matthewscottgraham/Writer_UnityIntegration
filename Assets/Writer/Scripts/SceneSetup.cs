@@ -13,7 +13,7 @@ namespace Writer.Scripts
         [SerializeField] private PlayerInteractSequenceTrigger interactablePrefab;
         [SerializeField] private Transform sequenceObjectParent;
         
-        private Dictionary<string, ISequenceTrigger> _existingSequenceTriggers = new();
+        private Dictionary<string, SequenceTrigger> _existingSequenceTriggers = new();
         
         public bool IsReady => sceneInfo != null;
         private Transform SequenceParent => sequenceObjectParent != null ? sequenceObjectParent : CreateSequenceParent();
@@ -33,7 +33,7 @@ namespace Writer.Scripts
             SetupSequences();
         }
 
-        private void FindExistingTriggers<T>() where T : Component, ISequenceTrigger
+        private void FindExistingTriggers<T>() where T : SequenceTrigger
         {
             var triggers = FindObjectsByType<T>(FindObjectsInactive.Include, FindObjectsSortMode.None);
             foreach (var trigger in triggers)
@@ -47,8 +47,11 @@ namespace Writer.Scripts
 
         private void SetupSequences()
         {
-            foreach (var sequence in sceneInfo.Sequences)
+            foreach (var sequenceID in sceneInfo.SequenceIDs)
             {
+                var sequenceInfo = Resources.Load<SequenceInfo>("Sequences/" + sequenceID);
+                if (!sequenceInfo) continue;
+                var sequence = sequenceInfo.Sequence;
                 switch (sequence.invokeOn)
                 {
                     case InvokeType.sceneStart:
@@ -104,7 +107,7 @@ namespace Writer.Scripts
             SetTriggerValues(sequenceObject, sequence);
         }
 
-        private static void SetTriggerValues(ISequenceTrigger trigger, Sequence sequence)
+        private static void SetTriggerValues(SequenceTrigger trigger, Sequence sequence)
         {
             trigger.SequenceID = sequence.Id;
             trigger.IsSingleUse = sequence.isSingleUse;

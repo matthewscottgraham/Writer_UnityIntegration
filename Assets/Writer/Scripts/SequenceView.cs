@@ -21,6 +21,13 @@ public class SequenceView : MonoBehaviour
         characterLabel.text = SequenceUtilities.GetTagValue(CharacterTagKey, passage.Tags);
     }
 
+    public void Close()
+    {
+        canvas.gameObject.SetActive(false);
+        textLabel.text = "";
+        characterLabel.text = "";
+    }
+
     private void OnEnable()
     {
         continueButton.onClick.AddListener(HandleContinue);

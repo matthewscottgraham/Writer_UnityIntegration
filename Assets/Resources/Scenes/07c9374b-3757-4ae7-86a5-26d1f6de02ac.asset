@@ -15,3 +15,5 @@ MonoBehaviour:
   id: 07c9374b-3757-4ae7-86a5-26d1f6de02ac
   niceName: Scene A
   description: 
+  sequenceIDs:
+  - b1d1d9bd-341d-45f8-9445-79a7cfb03f97

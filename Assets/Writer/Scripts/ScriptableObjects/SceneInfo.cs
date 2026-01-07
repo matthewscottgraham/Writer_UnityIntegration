@@ -1,19 +1,20 @@
-using Writer.Scripts.Data;
+using System.Linq;
+using UnityEngine;
 
 namespace Writer.Scripts.ScriptableObjects
 {
     public class SceneInfo : EntityInfo
     {
-        private Sequence[] _sequences;
+        [SerializeField] private string[] sequenceIDs;
 
-        public Sequence[] Sequences => _sequences;
+        public string[] SequenceIDs => sequenceIDs;
 
         public void Initialize(Scene scene)
         {
             id = scene.Id;
             niceName = scene.Name;
             description = scene.Description;
-            _sequences = scene.Sequences;
+            sequenceIDs = scene.Sequences.Select(sequence => sequence.Id).ToArray();
         }
     }
 }

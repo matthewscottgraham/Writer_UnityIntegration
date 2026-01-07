@@ -86,7 +86,7 @@ namespace Writer.Scripts.Editor
             CreateDirectory("Scenes");
             DeleteAsset("Scenes", sceneInfo.Id);
             AssetDatabase.CreateAsset(sceneInfo, $"Assets/Resources/Scenes/{sceneInfo.Id}.asset");
-
+            
             foreach (var sequence in scene.Value.Sequences)
             {
                 ImportSequence(sequence);

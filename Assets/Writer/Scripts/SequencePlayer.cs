@@ -13,13 +13,13 @@ namespace Writer.Scripts
 
         private void OnEnable()
         {
-            ISequenceTrigger.OnTrigger += HandleTriggerSequence;
+            SequenceTrigger.OnTrigger += HandleTriggerSequence;
             view.OnContinue += NextPassage;
         }
 
         private void OnDisable()
         {
-            ISequenceTrigger.OnTrigger -= HandleTriggerSequence;
+            SequenceTrigger.OnTrigger -= HandleTriggerSequence;
             view.OnContinue -= NextPassage;
         }
 
@@ -32,7 +32,7 @@ namespace Writer.Scripts
         {
             var sequenceInfo = Resources.Load<SequenceInfo>($"Sequences/{sequenceID}");
             if (sequenceInfo == null) Debug.LogError($"Sequence \"{sequenceID}\" could not be loaded.");
-            return sequenceInfo.Sequence;
+            return sequenceInfo ? sequenceInfo.Sequence : null;
         }
 
         private void PlaySequence(Sequence? sequence)
@@ -47,8 +47,15 @@ namespace Writer.Scripts
 
         private void NextPassage()
         {
+            view.Close();
             if (_activeSequence == null) return;
+            
             _activePassageIndex++;
+            if (_activePassageIndex >= _activeSequence.Value.passages.Length)
+            {
+                return;
+            }
+            
             view.DisplayPassage(_activeSequence.Value.passages[_activePassageIndex]);
         }
     }
