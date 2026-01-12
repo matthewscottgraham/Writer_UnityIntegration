@@ -20,8 +20,8 @@ interactable objects to a scene that will trigger when a player touches them.
 <p align="center">
 	<img src="images/screenshotA.jpg" alt="Screenshot A" height="300"/>
     <img src="images/thumbnailA.jpg" alt="Video Thumbnail" height="300"/>
-    https://www.youtube.com/watch?v=SX3gRdLbI2k
 </p>
+https://www.youtube.com/watch?v=SX3gRdLbI2k
 
 ### Should I use this in my project?
 No.
