@@ -13,9 +13,9 @@ namespace Writer.Scripts.Editor
 
         private void OnEnable()
         {
-            _sequenceId = serializedObject.FindProperty("sequence.Id");
-            _sequenceName = serializedObject.FindProperty("sequence.Name");
-            _invokeType = serializedObject.FindProperty("sequence.invokeOn");
+            _sequenceId = serializedObject.FindProperty("sequence.id");
+            _sequenceName = serializedObject.FindProperty("sequence.name");
+            _invokeType = serializedObject.FindProperty("sequence.invokeType");
             _isSingleUse = serializedObject.FindProperty("sequence.isSingleUse");
         }
 

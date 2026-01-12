@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Writer.Scripts.Demo
@@ -7,6 +8,12 @@ namespace Writer.Scripts.Demo
         private void Start()
         {
             TriggerSequence();
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position + Vector3.up, 1f);
         }
     }
 }

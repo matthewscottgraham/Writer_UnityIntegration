@@ -99,8 +99,8 @@ namespace Writer.Scripts.Editor
             sequenceInfo.Initialize(sequence);
         
             CreateDirectory("Sequences");
-            DeleteAsset("Sequences", sequence.Id);
-            AssetDatabase.CreateAsset(sequenceInfo, $"Assets/Resources/Sequences/{sequence.Id}.asset");
+            DeleteAsset("Sequences", sequence.id);
+            AssetDatabase.CreateAsset(sequenceInfo, $"Assets/Resources/Sequences/{sequence.id}.asset");
         }
     }
 }

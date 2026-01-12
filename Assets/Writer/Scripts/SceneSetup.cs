@@ -52,15 +52,15 @@ namespace Writer.Scripts
                 var sequenceInfo = Resources.Load<SequenceInfo>("Sequences/" + sequenceID);
                 if (!sequenceInfo) continue;
                 var sequence = sequenceInfo.Sequence;
-                switch (sequence.invokeOn)
+                switch (sequence.invokeType)
                 {
-                    case InvokeType.sceneStart:
+                    case InvokeType.SceneStart:
                         SetupSceneStartSequence(sequence);
                         break;
-                    case InvokeType.interaction:
+                    case InvokeType.Interaction:
                         SetupInteractionSequence(sequence);
                         break;
-                    case InvokeType.scripted:
+                    case InvokeType.Scripted:
                         break;
                     default:
                         Debug.LogWarning("Unknown sequence type.");
@@ -78,13 +78,13 @@ namespace Writer.Scripts
 
         private void SetupSceneStartSequence(Sequence sequence)
         {
-            if (_existingSequenceTriggers.ContainsKey(sequence.Id))
+            if (_existingSequenceTriggers.ContainsKey(sequence.id))
             {
-                SetTriggerValues(_existingSequenceTriggers[sequence.Id], sequence);
+                SetTriggerValues(_existingSequenceTriggers[sequence.id], sequence);
                 return;
             }
             
-            var sequenceObject = new GameObject(sequence.Name);
+            var sequenceObject = new GameObject(sequence.name);
             sequenceObject.transform.SetParent(SequenceParent, false);
             
             SetTriggerValues(
@@ -94,14 +94,14 @@ namespace Writer.Scripts
 
         private void SetupInteractionSequence(Sequence sequence)
         {
-            if (_existingSequenceTriggers.ContainsKey(sequence.Id))
+            if (_existingSequenceTriggers.ContainsKey(sequence.id))
             {
-                SetTriggerValues(_existingSequenceTriggers[sequence.Id], sequence);
+                SetTriggerValues(_existingSequenceTriggers[sequence.id], sequence);
                 return;
             }
             
             var sequenceObject = Instantiate(interactablePrefab, sequenceObjectParent);
-            sequenceObject.name = sequence.Name;
+            sequenceObject.name = sequence.name;
             sequenceObject.transform.SetParent(SequenceParent, false);
             
             SetTriggerValues(sequenceObject, sequence);
@@ -109,7 +109,7 @@ namespace Writer.Scripts
 
         private static void SetTriggerValues(SequenceTrigger trigger, Sequence sequence)
         {
-            trigger.SequenceID = sequence.Id;
+            trigger.SequenceID = sequence.id;
             trigger.IsSingleUse = sequence.isSingleUse;
         }
     }

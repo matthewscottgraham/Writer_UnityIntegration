@@ -14,7 +14,7 @@ namespace Writer.Scripts.ScriptableObjects
             id = scene.Id;
             niceName = scene.Name;
             description = scene.Description;
-            sequenceIDs = scene.Sequences.Select(sequence => sequence.Id).ToArray();
+            sequenceIDs = scene.Sequences.Select(sequence => sequence.id).ToArray();
         }
     }
 }

@@ -1,7 +1,15 @@
-[System.Serializable]
-public enum InvokeType
+using System.Runtime.Serialization;
+
+namespace Writer.Scripts.Data
 {
-    sceneStart,
-    interaction,
-    scripted
+    [System.Serializable]
+    public enum InvokeType
+    {
+        [EnumMember(Value = "sceneStart")]
+        SceneStart,
+        [EnumMember(Value = "interaction")]
+        Interaction,
+        [EnumMember(Value = "scripted")]
+        Scripted
+    }
 }
