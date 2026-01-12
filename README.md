@@ -19,7 +19,9 @@ interactable objects to a scene that will trigger when a player touches them.
 
 <p align="center">
 	<img src="images/screenshotA.jpg" alt="Screenshot A" height="300"/>
-    (https://raw.githubusercontent.com/matthewscottgraham/Writer_UnityIntegration/main/images/videoA.m4v)
+
+[![See it in action](https://raw.githubusercontent.com/matthewscottgraham/Writer_UnityIntegration/main/images/thumbnailA.jpg)]
+(https://raw.githubusercontent.com/matthewscottgraham/Writer_UnityIntegration/main/images/videoA.m4v)
 </p>
 
 ### Should I use this in my project?
